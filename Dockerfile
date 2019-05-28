@@ -1,12 +1,8 @@
-FROM centos:7
+FROM ubuntu:18:04
 
-RUN yum install -y epel-release
-RUN yum install octave -y
-RUN yum install python36 -y
-RUN yum install which -y
-ENV LC_ALL=en_US.utf8
-ENV LANG=en_US.utf8
-RUN python3.6 -m ensurepip
+RUN apt update
+RUN apt install octave -y
+RUN apt install python3.6 python3-pip -y
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
 RUN pip3 install pipenv
-
-ENTRYPOINT ["bash"]
